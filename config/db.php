@@ -30,7 +30,6 @@ class db {
             $pdo = new PDO($this->getDsn(), $this->username, $this->password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            echo "conexion exitosa";
             return $pdo;
         }
         catch (PDOException $error){
