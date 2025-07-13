@@ -19,10 +19,10 @@ class db {
 
     }
 
-    public static function connect()
+    public function connect()
     {
         try {
-            $pdo = new PDO(self::$dsn, self::$username, self::$password);
+            $pdo = new PDO($this->dsn, $this->username, $this->password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $pdo;
