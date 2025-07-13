@@ -1,37 +1,44 @@
-<?php 
+<?php
 
-class AuthService {
+class AuthService
+{
     private $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
-    public function authenticate($username, $password) {
-        
-        $query = "SELECT * FROM users WHERE username = :username AND password_hash = :password";
+    public function authenticate($username, $password)
+    {
+
+
+        $query = "SELECT password_hash FROM users WHERE username = :username";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $password);
-        $stmt->execute();
         
-        if ($stmt->rowCount() > 0) {
-            $this->setDataSession();
+        $stmt->execute();
+
+        $password_hash = $stmt->fetchColumn();
+        
+        if (password_verify($password, $password_hash)) {
+            $this->setDataSession($username);
             return true;
         } else {
             return false;
         }
     }
 
-    public function setDataSession() {
+    public function setDataSession($username)
+    {
 
         if (!isset($_SESSION)) {
             session_start();
         }
 
         $query = "SELECT * FROM users WHERE username = :username";
-        $stmt = $this->db->prepare($query); 
-        $stmt->bindParam(':username', Request::input('username'));
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':username', $username);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -49,14 +56,15 @@ class AuthService {
         $_SESSION['status'] = $data['status'];
     }
 
-    public function logout() {
+    public function logout()
+    {
         if (!isset($_SESSION)) {
             session_start();
         }
 
         session_unset();
         session_destroy();
-        
+
         header('Location: /login');
         exit();
     }

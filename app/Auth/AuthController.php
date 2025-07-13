@@ -15,14 +15,16 @@ class AuthController
 
         $db = new db();
         $authService = new AuthService($db->connect());
-        if ($authService->authenticate(Request::input('username'), Request::input('password'))) {
+        $request = new Request();
+        
+        if ($authService->authenticate($request->input('username'), $request->input('password'))) {
             $response['success'] = true;
             $response['message'] = 'Login exitoso';
-            ob_clean(); // Limpia cualquier salida previa inesperada
+            ob_clean();
             echo json_encode($response);
             exit();
         } else {
-            ob_clean(); // Limpia cualquier salida previa inesperada
+            ob_clean();
             echo json_encode($response);
             exit();
         }

@@ -11,16 +11,16 @@
             <h1 class="text-2xl font-bold text-gray-800 mb-2">Ingreso al Servicio Técnico</h1>
             <p class="text-gray-500">Por favor, ingresa tus credenciales</p>
         </div>
-        <form action='login'  method="POST" class="space-y-5" data-auto data-redirect="/home" data-alert="#login-alert">
+        <form action='login' method="POST" class="space-y-5" data-auto data-redirect="/home" data-alert="#login-alert">
 
             <div>
                 <label for="username" class="block text-gray-700 mb-1">Nombre de usuario</label>
-                <input type="username" id="username" name="username" 
+                <input type="username" id="username" name="username"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <div>
                 <label for="password" class="block text-gray-700 mb-1">Contraseña</label>
-                <input type="password" id="password" name="password" 
+                <input type="password" id="password" name="password"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <button type="submit"
@@ -33,4 +33,5 @@
         </div>
     </div>
 </body>
+
 </html>

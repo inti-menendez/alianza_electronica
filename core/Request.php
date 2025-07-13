@@ -15,28 +15,28 @@ class Request
         $this->files  = $_FILES;
     }
 
-    public static function input(string $key, $default = null)
+    public function input(string $key, $default = null)
     {
-        return self::$post[$key] ?? self::$get[$key] ?? $default;
+        return $this->post[$key] ?? $this->get[$key] ?? $default;
     }
 
-    public static function all(): array
+    public function all(): array
     {
-        return array_merge(self::$get, self::$post, self::$files);
+        return array_merge($this->get, $this->post, $this->files);
     }
 
-    public static function method(): string
+    public function method(): string
     {
-        return strtoupper(self::$server['REQUEST_METHOD'] ?? 'GET');
+        return strtoupper($this->server['REQUEST_METHOD'] ?? 'GET');
     }
 
-    public static function file(string $key)
+    public function file(string $key)
     {
-        return self::$files[$key] ?? null;
+        return $this->files[$key] ?? null;
     }
 
-    public static function isMethod(string $method): bool
+    public function isMethod(string $method): bool
     {
-        return self::$method() === strtoupper($method);
+        return $this->method() === strtoupper($method);
     }
 }
