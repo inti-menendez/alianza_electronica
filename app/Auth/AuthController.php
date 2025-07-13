@@ -9,13 +9,21 @@ class AuthController
 
     public static function auth()
     {
+        header('Content-Type: application/json');
+        $response = ['success' => false, 'message' => 'Credenciales incorrectas'];
+
+
         $db = new db();
         $authService = new AuthService($db->connect());
         if ($authService->authenticate(Request::input('username'), Request::input('password'))) {
-            header('Location: /home');
+            $response['success'] = true;
+            $response['message'] = 'Login exitoso';
+            ob_clean(); // Limpia cualquier salida previa inesperada
+            echo json_encode($response);
             exit();
         } else {
-            echo json_encode(['error' => 'Credenciales Inválidas']);
+            ob_clean(); // Limpia cualquier salida previa inesperada
+            echo json_encode($response);
             exit();
         }
     }
