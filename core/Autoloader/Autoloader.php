@@ -17,7 +17,7 @@ class Autoloader {
 
     public static function charge($clase) {
         $fileName = $clase . '.php';
-        $folders = require PATH_CONFIG . 'autoloader.php';
+        $folders = require PATH_CONFIG . 'autoloader/autoloader.php';
         foreach ($folders as $folder) {
             if (self::searchFile($folder, $fileName)) {
                 return true;
