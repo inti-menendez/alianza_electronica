@@ -1,0 +1,20 @@
+{
+    "name": "inti/alianza_electronica",
+    "description": "Proyecto para la empresa Alianza Electronica",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Inti Menendez Sanchez",
+            "email": "intimenendez2004@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*"
+    }
+}
