@@ -4,6 +4,10 @@ class AuthController
 {
     public static function index()
     {
+        if (isset($_SESSION['logged_in']) || $_SESSION['logged_in']) {
+            header('Location: home');
+            exit();
+        }
         require_once 'views/loginView.php';
     }
 

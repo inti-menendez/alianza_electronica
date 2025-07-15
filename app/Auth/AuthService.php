@@ -11,8 +11,6 @@ class AuthService
 
     public function authenticate($username, $password)
     {
-
-
         $query = "SELECT password_hash FROM users WHERE username = :username";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $username);
