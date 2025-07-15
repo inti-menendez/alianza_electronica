@@ -4,7 +4,7 @@ class AuthController
 {
     public static function index()
     {
-        if (isset($_SESSION['logged_in']) || $_SESSION['logged_in']) {
+        if (isset($_SESSION['logged_in'])) {
             header('Location: home');
             exit();
         }
@@ -32,5 +32,10 @@ class AuthController
             echo json_encode($response);
             exit();
         }
+    }
+
+    public static function logout()
+    {
+        AuthService::logout();
     }
 }
