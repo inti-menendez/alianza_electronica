@@ -25,7 +25,7 @@ class AuthService
             $stmt->bindParam(':username', $username);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            SessionManager::setDataSession($username);
+            SessionManager::setDataSession($data);
             return true;
         } else {
             return false;
