@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Alianza Electrónica</title>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen bg-[url('resources/images/bg-ae.jpg')] bg-cover bg-center">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 opacity-90">
         <div class="mb-6 text-center">
             <h1 class="text-2xl font-bold text-gray-800 mb-2">Ingreso al Servicio Técnico</h1>
             <p class="text-gray-500">Por favor, ingresa tus credenciales</p>
