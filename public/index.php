@@ -2,16 +2,11 @@
 <script src="js/form.core.js" type="module"></script>
 <style>
     @layer utilities {
-        .primary {
-            color: #076AAE;
-            /* Rojo */
-        }
-        .secondary {
-            color: #0097D8;
-            /* Azul */
-        }
-        .grey {
-            color: #4d4d4d;
+
+        :root{
+            --primary-color: #076AAE;
+            --secondary-color: #0097D8;
+            --grey-color: #4d4d4d;
         }
     }
 </style>

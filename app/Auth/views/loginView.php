@@ -24,7 +24,7 @@
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <button type="submit"
-                class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                class="w-full bg-(--secondary-color) text-white py-2 rounded-lg font-semibold hover:bg-(--primary-color) transition">
                 Ingresar
             </button>
         </form>
