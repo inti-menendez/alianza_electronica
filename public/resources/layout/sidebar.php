@@ -4,5 +4,6 @@
     <li><a href="customers" class="block hover:text-blue-500">Clientes</a></li>
     <li><a href="devices" class="block hover:text-blue-500">Equipos</a></li>
     <li><a href="tasks" class="block hover:text-blue-500">Tareas</a></li>
+    <li><a href="users" class="block hover:text-blue-500">Usuarios</a></li>
   </ul> 
 </aside>
