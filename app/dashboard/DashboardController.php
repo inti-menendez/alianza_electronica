@@ -1,21 +1,14 @@
 <?php
 
-class DashboardController
+class DashboardController extends controller
 {
     public function index()
     {
         SessionManager::requireLogin(); 
 
-        self::render();
+        self::render(__DIR__ . '/views/' . 'home.php');
+
     }
-    public static function render($view = 'home')
-    {
-        $viewPath = __DIR__ . '/views/'.$view.'.php';
-        if (!file_exists($viewPath)){
-            http_response_code(404);
-            echo "View not found: " . htmlspecialchars($view);
-            return;
-        }
-        include __DIR__ . '/../../public/resources/layout/base.php';
-    }
+
+
 }
