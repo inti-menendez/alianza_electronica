@@ -16,9 +16,7 @@ class AuthController
         header('Content-Type: application/json');
         $response = ['success' => false, 'message' => 'Credenciales incorrectas'];
 
-
-        $db = new db();
-        $authService = new AuthService($db->connect());
+        $authService = new AuthService(db::connectDB());
         $request = new Request();
         
         if ($authService->authenticate($request->input('username'), $request->input('password'))) {
