@@ -10,20 +10,21 @@ class db {
     private $port = 3306;
     private $dsn;
 
-    private function getDsn()
+    private function setDsn()
     {
         $this->dsn = "mysql:host={$this->host};
         dbname={$this->database};
         charset={$this->charset};
-        port={$this->port}";
-        return $this->dsn;
+        port={$this->port}";     
     }
 
+
     public static function connectDB()
-    {
-        $dsn = self::getDsn();
+    {   
+        $db =  new self();
+        $db->setDsn();
         try {
-            $pdo = new PDO($dsn, self::$username, self::$password);
+            $pdo = new PDO($db->dsn, $db->username, $db->password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $pdo;
