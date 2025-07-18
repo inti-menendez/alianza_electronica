@@ -173,7 +173,7 @@ class CRUD
 
     public static function orWhere(string $field, string $operator, mixed $value)
     {
-        $param = $field . count(self::$wheres);
+        $param = preg_replace('/[^a-zA-Z0-9_]/', '_', $field) . count(self::$wheres);
         $clausula = "{$field} {$operator} :{$param}";
         self::$bindings[$param] = $value;
 
