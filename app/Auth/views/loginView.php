@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Alianza Electrónica</title>
+    <title>Login <?=SYSTEMNAME?></title>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen bg-[url('resources/images/bg-ae.jpg')] bg-cover bg-center">
     <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 opacity-90">
