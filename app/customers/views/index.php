@@ -1,7 +1,16 @@
 <?php
 $ultimos = array_slice($clientes, 0, 3);
 ?>
-<h2 class="text-xl font-bold text-gray-800 mb-4">Últimos clientes registrados</h2>
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Últimos clientes registrados
+    </h1>
+</div>
+
+
 <?php include __DIR__ . '/../components/list.php'; ?>
 
 
@@ -32,7 +41,6 @@ $ultimos = array_slice($clientes, 0, 3);
         <input type="text" id="searchInput"
             placeholder="Buscar cliente por nombre, teléfono o email..."
             class="w-full md:max-w-lg px-3 py-2 border rounded shadow text-sm focus:outline-none focus:ring focus:border-blue-300" />
-
     </div>
 
     <div class="mt-6">
