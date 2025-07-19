@@ -1,4 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="js/form.core.js" type="module"></script>
 <style>
     @layer utilities {
