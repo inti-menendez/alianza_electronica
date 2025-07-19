@@ -2,8 +2,10 @@
 
 class controller
 {
-    public static function render($viewPath)
+    public static function render($viewPath, $data=[])
     {
+        extract($data);
+
         if (!file_exists($viewPath)) {
             $viewPath = ERROR_CODES_DIR . '/404.php';
         }
