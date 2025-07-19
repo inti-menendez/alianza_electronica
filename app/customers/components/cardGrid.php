@@ -1,4 +1,5 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<div id="cardContainer"
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <?php foreach ($clientes as $c): ?>
         <div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between hover:ring-1 hover:ring-blue-300 transition">
             <div>

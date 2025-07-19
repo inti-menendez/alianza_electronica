@@ -1,4 +1,5 @@
-<div class="overflow-x-auto bg-white rounded-lg shadow ring-1 ring-gray-200 mt-8">
+<div id="tableContainer"
+    class="overflow-x-auto bg-white rounded-lg shadow ring-1 ring-gray-200 mt-8">
     <table class="min-w-full divide-y divide-gray-200 text-sm">
         <thead class="bg-gray-50">
             <tr>
