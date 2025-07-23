@@ -9,9 +9,9 @@
                 <p class="text-xs text-gray-500 line-clamp-2"><?= $c['notes'] ?? '-' ?></p>
             </div>
             <div class="flex justify-end gap-2 mt-4 text-sm">
-                <a href="/customers/<?= $c['id'] ?>" class="text-blue-600 hover:underline">Ver</a>
-                <a href="/customers/<?= $c['id'] ?>/edit" class="text-yellow-600 hover:underline">Editar</a>
-                <a href="/customers/<?= $c['id'] ?>/delete" class="text-red-600 hover:underline" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+                <a href="customers/<?= $c['id'] ?>" class="text-blue-600 hover:underline">Ver</a>
+                <a href="customers/<?= $c['id'] ?>/edit" class="text-yellow-600 hover:underline">Editar</a>
+                <a href="customers/<?= $c['id'] ?>/delete" class="text-red-600 hover:underline" onclick="return confirm('¿Eliminar?')">Eliminar</a>
             </div>
         </div>
     <?php endforeach; ?>

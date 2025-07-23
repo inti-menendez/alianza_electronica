@@ -7,7 +7,7 @@
                     <p class="text-sm text-gray-600"><?= $c['phone'] ?> · <?= $c['email'] ?></p>
                 </div>
                 <div class="flex gap-2 text-sm">
-                    <a href="/customers/<?= $c['id'] ?>" class="text-blue-600 hover:underline">Ver</a>
+                    <a href="customers/<?= $c['id'] ?>" class="text-blue-600 hover:underline">Ver</a>
                 </div>
             </div>
         </li>
