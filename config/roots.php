@@ -1,5 +1,6 @@
 <?php
 
+define('BASE_URL', '/alianza_electronica/public/');
 define('PATH_APP', '../app/');
 define('PATH_CONFIG', '../config/');
 define('PATH_CORE', '../core/');

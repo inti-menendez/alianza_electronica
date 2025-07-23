@@ -2,6 +2,6 @@
   <h1 class="text-xl font-bold primary">Alianza Electrónica</h1>
   <nav>
     <span class="text-gray-600 mr-4">Bienvenido, <?= $_SESSION['user']['name'] ?? 'Invitado' ?></span>
-    <a href="logout" class="text-red-500 font-semibold hover:underline">Salir</a>
+    <a href=<?=route('logout')?> class="text-red-500 font-semibold hover:underline">Salir</a>
   </nav>
 </header>

@@ -1,6 +1,7 @@
 <?php
 require_once '../config/roots.php';
 require_once '../core/Autoloader/Autoloader.php';
+require_once 'helper.php';
 
 Autoloader::register();
 
