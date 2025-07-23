@@ -14,10 +14,7 @@
     }
 </style>
 <?php
-function route($path = '')
-{
-    return PATH_PUBLIC . trim($path, '/');
-}
+
 session_start();
 require_once '../core/launcher.php';
 ?>
