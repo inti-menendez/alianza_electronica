@@ -22,8 +22,29 @@ class CustomerService
         return CustomerModel::table()->delete($id);
     }
 
-    public static function details($id)
+    public static function getDetails($id)
     {
         return CustomerModel::findBy($id);
+    }
+
+        public static function getFullProfile($id)
+    {
+        $customer = CustomerModel::findBy($id);
+
+        $devices = DeviceModel::table()
+            ->where('customer_id', '=', $id)
+            ->orderBy('created_at', 'DESC')
+            ->read();
+
+        $tasks = TaskModel::table()
+            ->where('customer_id', '=', $id)
+            ->orderBy('created_at', 'DESC')
+            ->read();
+
+        return [
+            'customer' => $customer,
+            'devices' => $devices,
+            'tasks'   => $tasks
+        ];
     }
 }

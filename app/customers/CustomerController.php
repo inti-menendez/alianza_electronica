@@ -11,10 +11,13 @@ class CustomerController extends controller
             ['clientes' =>$clientes]
         );
     }
-    public function showDetail($id)
+    public function show($id)
     {
-        $cliente = CustomerService::details($id);
-        self::render(__DIR__ . '/views/show.php', ['cliente' => $cliente]);
+        SessionManager::requireLogin();
+        $allCustomerData = CustomerService::getFullProfile($id);
+        self::render(
+            __DIR__ . '/views/showDetail.php',
+            ['data' => $allCustomerData]);
     }
 
     public function store()

@@ -2,14 +2,14 @@
 <?php
 class CustomerModel extends CRUD
 {
-    public static function table($name='customers')
+    public static function table($name = 'customers')
     {
         return parent::table('customers');
     }
 
     public static function all()
-    {      
-        return 
+    {
+        return
             self::table()
             ->orderBy('name')
             ->read();
@@ -17,12 +17,10 @@ class CustomerModel extends CRUD
 
     public static function findBy($value, $field = 'id')
     {
-        return 
+        return
             self::table()
-            ->where($field, '=', $value)
-            ->limit(1)
-            ->read()[0] ?? 'cliente no encontrado';
+                ->where($field, '=', $value)
+                ->limit(1)
+                ->read()[0] ?? 'cliente no encontrado';
     }
-
-
 }
