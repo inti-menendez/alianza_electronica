@@ -23,40 +23,71 @@
             Tareas asociadas (<?= count($tasks) ?>)
         </h1>
     </div>
+    <div class="bg-white rounded-lg shadow p-4">
+        <div class="bg-white flex space-x-2 border-b border-gray-200 text-sm mb-4">
+            <template x-for="tab in tabs" :key="tab">
+                <button @click="active = tab"
+                    :class="active === tab ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-600'"
+                    class="px-3 py-2 border-b-2 font-medium"
+                    x-text="tabLabel(tab)">
+                </button>
+            </template>
+        </div>
+        <div class="space-y-4">
+            <template x-for="t in filtered" :key="t.id">
+                <div class="bg-white border-l-4 border-blue-400 rounded-lg ring-1 ring-gray-100">
+                    <div class="flex justify-between items-center bg-gray-50 px-4 py-2 rounded-t relative">
+                        <h3 class="text-sm font-semibold text-gray-800" x-text="t.title"></h3>
+
+                        <span
+                            class=" text-xs font-semibold px-2 py-1 rounded"
+                            :class="{
+                        'bg-red-100 text-red-800': t.priority === 'alta',
+                        'bg-yellow-100 text-yellow-800': t.priority === 'media',
+                        'bg-green-100 text-green-800': t.priority === 'baja'
+                        }"
+                            x-text="`${t.priority} • ${t.estimated_date}`">
+                        </span>
+
+                    </div>
+                    <div class="p-4">
+
+                        <p class="text-sm text-gray-600 mb-2" x-text="t.description"></p>
 
 
-    <div class="flex space-x-2 border-b border-gray-200 text-sm mb-4">
-        <template x-for="tab in tabs" :key="tab">
-            <button @click="active = tab"
-                :class="active === tab ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-600'"
-                class="px-3 py-2 border-b-2 font-medium"
-                x-text="tabLabel(tab)">
-            </button>
-        </template>
-    </div>
 
+                        <div class="text-xs text-gray-500 mb-1">
+                            <span class="font-medium text-gray-700">Equipo:</span>
+                            <span x-text="`${t.device?.brand ?? '-'} ${t.device?.model ?? '-'}`"></span>
+                            <span class="text-gray-400">•</span>
+                            <span x-text="`Serial: ${t.device?.serial_number ?? '-'}`"></span>
+                        </div>
 
-    <div class="space-y-4">
-        <template x-for="t in filtered" :key="t.id">
-            <div class="bg-white rounded-lg shadow p-4 ring-1 ring-gray-100">
-                <h3 class="text-base font-bold text-gray-800" x-text="t.title"></h3>
-                <p class="text-sm text-gray-600" x-text="t.description"></p>
-                <div class="flex justify-between items-center mt-2 text-xs text-gray-500">
-                    <span>Estado: <strong class="text-gray-700" x-text="t.status"></strong></span>
-                    <span>Prioridad: <span x-text="t.priority"></span></span>
-                    <span>Fecha estimada: <span x-text="t.estimated_date"></span></span>
+                        <div class="text-xs text-gray-500 mb-1">
+                            <span class="font-medium text-gray-700">Técnico:</span>
+                            <span x-text="`${t.technician?.name ?? 'Sin asignar'} ${t.technician?.last_name ?? ''}`"></span>
+                        </div>
+                        <div class="flex justify-between items-center gap-2 mt-3 text-sm">
+                            <div class="">
+                                <span :class="statusClass(t.status)" class="text-xs px-2 py-1 rounded font-semibold">
+                                    <span x-text="statusLabel(t.status)"></span>
+                                </span>
+                            </div>
+                            <div>
+                            <a :href="`<?= route('tasks/') ?>${t.id}`" class="text-blue-600 hover:underline">Ver</a>
+                            <a :href="`<?= route('tasks/') ?>${t.id}/edit`" class="text-yellow-600 hover:underline">Editar</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex justify-end gap-2 mt-3 text-sm">
-                    <a :href="`<?= route('tasks/') ?>${t.id}`" class="text-blue-600 hover:underline">Ver</a>
-                    <a :href="`<?= route('tasks/') ?>${t.id}/edit`" class="text-yellow-600 hover:underline">Editar</a>
+            </template>
+            <template x-if="filtered.length === 0">
+                <div class="text-center text-sm text-gray-500 py-6">
+                    No hay tareas en esta categoría.
                 </div>
-            </div>
-        </template>
-        <template x-if="filtered.length === 0">
-            <div class="text-center text-sm text-gray-500 py-6">
-                No hay tareas en esta categoría.
-            </div>
-        </template>
+            </template>
+
+        </div>
 
     </div>
 </div>
@@ -80,6 +111,32 @@
                     pendientes: 'Pendientes',
                     completadas: 'Completadas'
                 } [tab];
+            },
+            statusLabel(status) {
+                return {
+                    pendiente: 'Pendiente',
+                    en_proceso: 'En proceso',
+                    diagnosticado: 'Diagnosticado',
+                    espera_repuesto: 'Espera repuesto',
+                    espera_insumos: 'Espera insumos',
+                    espera_respuesta_del_cliente: 'Espera respuesta',
+                    completada: 'Completada',
+                    entregada: 'Entregada',
+                    cancelada: 'Cancelada'
+                } [status] ?? 'Desconocido';
+            },
+            statusClass(status) {
+                return {
+                    pendiente: 'bg-yellow-100 text-yellow-800',
+                    en_proceso: 'bg-blue-100 text-blue-800',
+                    diagnosticado: 'bg-indigo-100 text-indigo-800',
+                    espera_repuesto: 'bg-orange-100 text-orange-800',
+                    espera_insumos: 'bg-orange-100 text-orange-800',
+                    espera_respuesta_del_cliente: 'bg-pink-100 text-pink-800',
+                    completada: 'bg-green-100 text-green-800',
+                    entregada: 'bg-green-200 text-green-900',
+                    cancelada: 'bg-red-100 text-red-800'
+                } [status] ?? 'bg-gray-100 text-gray-800';
             }
         };
     }

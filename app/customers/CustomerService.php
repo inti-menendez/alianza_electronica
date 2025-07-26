@@ -27,7 +27,7 @@ class CustomerService
         return CustomerModel::findBy($id);
     }
 
-        public static function getFullProfile($id)
+    public static function getFullProfile($id)
     {
         $customer = CustomerModel::findBy($id);
 
@@ -36,10 +36,8 @@ class CustomerService
             ->orderBy('created_at', 'DESC')
             ->read();
 
-        $tasks = TaskModel::table()
-            ->where('customer_id', '=', $id)
-            ->orderBy('created_at', 'DESC')
-            ->read();
+        $tasks = TaskServices::getTasksWithDetails($id);
+
 
         return [
             'customer' => $customer,
