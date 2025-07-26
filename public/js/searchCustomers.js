@@ -63,7 +63,7 @@ function renderTable(clientes) {
     }
 
     let html = `
-        <div class="overflow-x-auto bg-white rounded-lg shadow ring-1 ring-gray-200 mt-4">
+      
         <table class="min-w-full divide-y divide-gray-200 text-sm">
             <thead class="bg-gray-50">
                 <tr>
@@ -103,6 +103,6 @@ function renderTable(clientes) {
         `;
     });
 
-    html += `</tbody></table></div>`;
+    html += `</tbody></table>`;
     container.innerHTML = html;
 }
