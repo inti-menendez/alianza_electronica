@@ -25,9 +25,9 @@
                 </td>
                 <td class="px-4 py-2">
                     <div class="flex gap-2 text-sm">
-                        <a href="customers/<?= $c['id'] ?>" class="text-blue-600 hover:underline">Ver</a>
-                        <a href="customers/<?= $c['id'] ?>/edit" class="text-yellow-600 hover:underline">Editar</a>
-                        <a href="customers/<?= $c['id'] ?>/delete" class="text-red-600 hover:underline" onclick="return confirm('¿Eliminar cliente?')">Eliminar</a>
+                        <a href='<?= route("customers/". $c['id']) ?>' class="text-blue-600 hover:underline">Ver</a>
+                        <a href='<?= route("customers/". $c['id']. "/edit")?>' class="text-yellow-600 hover:underline">Editar</a>
+                        <a href='<?= route("customers/". $c['id']. "/delete")?>' class="text-red-600 hover:underline" onclick="return confirm('¿Eliminar cliente?')">Eliminar</a>
                     </div>
                 </td>
             </tr>
