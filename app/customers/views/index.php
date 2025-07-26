@@ -3,7 +3,7 @@ $ultimos = array_slice($clientes, 0, 3);
 ?>
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         Últimos clientes registrados
@@ -16,7 +16,7 @@ $ultimos = array_slice($clientes, 0, 3);
 
 <div class="flex justify-between items-center mt-8 mb-6">
     <h1 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
-        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h10M5 21h14a2 2 0 002-2V7H3v12a2 2 0 002 2z" />
         </svg>
         Clientes registrados (<?= count($clientes) ?>)
